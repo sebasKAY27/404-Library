@@ -1,0 +1,492 @@
+:root {
+    --xp-blue: #003399;
+    --xp-light-blue: #6BA8FF;
+    --xp-grey: #E6E6E6;
+    /* Main background */
+    --xp-white: #FFFFFF;
+    --xp-yellow: #FFCC00;
+    --xp-title-gradient-start: #0058E6;
+    --xp-title-gradient-end: #3A93FF;
+    --xp-panel-header-start: #215DC6;
+    --xp-panel-header-end: #90CBF4;
+    /* Actually XP sidebars are usually blue gradients */
+    --xp-panel-header-bg: linear-gradient(to right, #FFF, #D6DFF7);
+    --xp-sidebar-bg: #7BA2E7;
+    /* The blue sidebar background */
+    --xp-border-color: #003399;
+
+    --font-main: 'Tahoma', sans-serif;
+    --font-pixel: 'Press Start 2P', cursive;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--xp-blue);
+    /* Desktop background */
+    font-family: var(--font-main);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-container {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Header --- */
+.xp-header {
+    background: var(--xp-grey);
+    border-bottom: 1px solid #999;
+}
+
+.title-bar {
+    height: 30px;
+    background: linear-gradient(to bottom, #0058E6 0%, #3A93FF 8%, #2869E6 40%, #0058E6 88%, #003399 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #000;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.title-bar-text {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+}
+
+.window-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.title-bar-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.title-bar-controls button {
+    width: 21px;
+    height: 21px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    background: linear-gradient(to bottom, #E88B8B 0%, #C42626 50%, #8C0808 100%);
+    /* Close button style roughly */
+    box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.title-bar-controls button:nth-child(1),
+.title-bar-controls button:nth-child(2) {
+    background: linear-gradient(to bottom, #8BAAE8 0%, #2664C4 50%, #08348C 100%);
+}
+
+.menu-bar {
+    background: #ECE9D8;
+    display: flex;
+    padding: 2px 5px;
+    border-bottom: 1px solid #D1CFC4;
+    font-size: 11px;
+}
+
+.menu-item {
+    padding: 3px 8px;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background-color: #316AC5;
+    color: white;
+}
+
+.address-bar {
+    background: #ECE9D8;
+    display: flex;
+    align-items: center;
+    padding: 4px 5px;
+    gap: 5px;
+    border-bottom: 1px solid #D1CFC4;
+    font-size: 11px;
+}
+
+.address-label {
+    color: #444;
+}
+
+.address-input-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 1px solid #7F9DB9;
+    padding: 2px;
+}
+
+.address-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+}
+
+.address-input-wrapper input {
+    border: none;
+    width: 100%;
+    font-family: var(--font-main);
+    font-size: 11px;
+    outline: none;
+}
+
+.go-button {
+    display: flex;
+    align-items: center;
+    padding: 2px 8px;
+    background: #ECE9D8;
+    border: 1px solid #7F9DB9;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.go-button:hover {
+    box-shadow: inset 1px 1px 2px #fff;
+}
+
+/* --- Main Body --- */
+.main-body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 200px;
+    background: linear-gradient(to bottom, #7BA2E7 0%, #6375D6 100%);
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.sidebar-panel {
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.panel-header {
+    background: linear-gradient(to right, #FFF 0%, #D6DFF7 100%);
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.panel-title {
+    font-weight: bold;
+    color: #215DC6;
+    font-size: 12px;
+}
+
+.panel-toggle {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    background: url('https://win98icons.alexmeub.com/icons/png/arrow_up-0.png') no-repeat center center;
+    background-size: 10px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.panel-content {
+    padding: 10px;
+    background: #D6DFF7;
+    /* Light blue content bg */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #215DC6;
+    font-size: 11px;
+    padding: 2px;
+}
+
+.sidebar-link img {
+    width: 16px;
+    height: 16px;
+}
+
+.sidebar-link:hover {
+    text-decoration: underline;
+    color: #003399;
+}
+
+/* Content Area */
+.content-area {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+.search-section {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ECE9D8;
+}
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-wrapper label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #444;
+}
+
+.search-wrapper input {
+    padding: 5px;
+    border: 1px solid #7F9DB9;
+    width: 300px;
+    font-family: var(--font-main);
+}
+
+/* Grid */
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.xp-card {
+    border: 1px solid #D1CFC4;
+    border-radius: 3px;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    background: #f5f5f5;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.xp-card:hover {
+    background: #FFFFE1;
+    /* Light yellow highlight like XP selection */
+    border-color: #F2963D;
+    box-shadow: 0 0 5px rgba(242, 150, 61, 0.5);
+    transform: translateY(-2px);
+}
+
+.card-icon {
+    flex-shrink: 0;
+}
+
+.card-icon img {
+    width: 32px;
+    height: 32px;
+}
+
+.card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: 14px;
+    color: #003399;
+    margin-bottom: 4px;
+}
+
+.card-category {
+    font-size: 10px;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.card-desc {
+    font-size: 11px;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.card-stats {
+    font-size: 10px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.card-actions {
+    display: flex;
+    gap: 5px;
+    margin-top: auto;
+}
+
+.xp-button {
+    background: linear-gradient(to bottom, #F8F8F8 0%, #ECE9D8 100%);
+    border: 1px solid #7F9DB9;
+    border-radius: 3px;
+    padding: 4px 10px;
+    font-family: var(--font-main);
+    font-size: 11px;
+    cursor: pointer;
+    color: #000;
+}
+
+.xp-button:hover {
+    box-shadow: inset 0 0 2px #F2963D;
+    border-color: #F2963D;
+}
+
+.xp-button.save-btn {
+    font-weight: bold;
+}
+
+/* Footer */
+.xp-footer {
+    height: 30px;
+    background: linear-gradient(to bottom, #245EDC 0%, #3E80F2 10%, #245EDC 100%);
+    display: flex;
+    align-items: center;
+    padding: 0;
+    color: white;
+    border-top: 1px solid #003399;
+    position: relative;
+    z-index: 100;
+}
+
+.footer-start {
+    padding-left: 0;
+}
+
+.start-button {
+    height: 30px;
+    background: linear-gradient(to bottom, #3C8538 0%, #4AB440 10%, #3C8538 100%);
+    border: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 0 15px 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 14px;
+    box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.5), 2px 0 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.start-button img {
+    width: 20px;
+    height: 20px;
+}
+
+.start-button:hover {
+    background: linear-gradient(to bottom, #4AB440 0%, #5DD652 10%, #4AB440 100%);
+}
+
+.footer-taskbar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.task-item {
+    background: #1E52B7;
+    border: 1px solid #103682;
+    border-radius: 2px;
+    padding: 2px 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    width: 150px;
+    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.task-item.active {
+    background: #153E8F;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.task-item img {
+    width: 16px;
+    height: 16px;
+}
+
+.footer-tray {
+    background: #0B76E0;
+    border-left: 1px solid #103682;
+    padding: 0 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.footer-tray img {
+    width: 16px;
+    height: 16px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F0F0F0;
+    border-left: 1px solid #E0E0E0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #CDCDCD;
+    border: 1px solid #F0F0F0;
+    box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #aaa;
+}
+
+::-webkit-scrollbar-button {
+    background: #F0F0F0;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #E0E0E0;
+    box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #aaa;
+}
