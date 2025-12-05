@@ -140,3 +140,97 @@ document.querySelectorAll('.xp-card .xp-button').forEach(btn => {
         });
     }
 });
+
+// Category Filtering
+document.querySelectorAll('.sidebar-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        const linkText = link.textContent.trim().toLowerCase();
+
+        // Skip navigation links (Home, Submit, etc.)
+        if (linkText.includes('home') || linkText.includes('submit') ||
+            linkText.includes('browse') || linkText.includes('all resources')) {
+            return; // Let default navigation happen
+        }
+
+        // For category links, filter cards
+        e.preventDefault();
+
+        // Remove active class from all links
+        document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+        // Add active class to clicked link
+        link.classList.add('active');
+
+        const cards = document.querySelectorAll('.xp-card');
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+            const category = card.querySelector('.card-category')?.textContent.toLowerCase() || '';
+            const title = card.querySelector('.card-title')?.textContent.toLowerCase() || '';
+
+            let shouldShow = false;
+
+            // Match categories
+            if (linkText.includes('system') && category.includes('system')) shouldShow = true;
+            if (linkText.includes('terminal') && category.includes('terminal')) shouldShow = true;
+            if (linkText.includes('guide') && category.includes('guide')) shouldShow = true;
+            if (linkText.includes('guía') && category.includes('guide')) shouldShow = true;
+            if (linkText.includes('repositor') && category.includes('repositor')) shouldShow = true;
+            if (linkText.includes('component') && category.includes('component')) shouldShow = true;
+            if (linkText.includes('customiz') && category.includes('customiz')) shouldShow = true;
+            if (linkText.includes('personaliz') && category.includes('customiz')) shouldShow = true;
+            if (linkText.includes('upload') && category.includes('user upload')) shouldShow = true;
+            if (linkText.includes('subida') && category.includes('user upload')) shouldShow = true;
+            if (linkText.includes('favorit') && title.includes('favorit')) shouldShow = true;
+            if (linkText.includes('trash') && title.includes('trash')) shouldShow = true;
+            if (linkText.includes('basura') && title.includes('trash')) shouldShow = true;
+
+            if (shouldShow) {
+                card.style.display = 'flex';
+                card.style.animation = 'fadeIn 0.3s ease-in-out';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        // Show message if no cards found
+        const grid = document.querySelector('.resource-grid');
+        let noResultsMsg = document.getElementById('noResultsMsg');
+
+        if (visibleCount === 0) {
+            if (!noResultsMsg) {
+                noResultsMsg = document.createElement('div');
+                noResultsMsg.id = 'noResultsMsg';
+                noResultsMsg.style.cssText = 'grid-column: 1 / -1; text-align: center; padding: 40px; background: #FFFFE1; border: 1px solid #F2963D; border-radius: 3px; font-size: 14px; color: #003399;';
+                noResultsMsg.innerHTML = '⚠️ No resources found in this category yet. Check back soon!';
+                grid.appendChild(noResultsMsg);
+            }
+        } else {
+            if (noResultsMsg) {
+                noResultsMsg.remove();
+            }
+        }
+
+        playSound('click');
+    });
+});
+
+// "Show All" functionality - click on panel headers to show all
+document.querySelectorAll('.panel-header').forEach(header => {
+    header.addEventListener('dblclick', () => {
+        const cards = document.querySelectorAll('.xp-card');
+        cards.forEach(card => {
+            card.style.display = 'flex';
+            card.style.animation = 'fadeIn 0.3s ease-in-out';
+        });
+
+        // Remove active class from all links
+        document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+
+        // Remove no results message
+        const noResultsMsg = document.getElementById('noResultsMsg');
+        if (noResultsMsg) noResultsMsg.remove();
+
+        playSound('popup');
+    });
+});
