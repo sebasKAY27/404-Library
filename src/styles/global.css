@@ -1,0 +1,42 @@
+:root {
+  --xp-blue: #003399;
+  --xp-light-blue: #6BA8FF;
+  --xp-grey: #E6E6E6;
+  --xp-white: #FFFFFF;
+  --xp-yellow: #FFCC00;
+  --xp-border-color: #003399;
+
+  --font-main: 'Tahoma', sans-serif;
+  --font-pixel: 'Press Start 2P', cursive;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--xp-blue);
+  font-family: var(--font-main);
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+button, input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+input {
+  background: white;
+  color: #000;
+}

@@ -1,0 +1,19 @@
+body {
+  background-color: var(--xp-blue);
+  font-family: var(--font-main);
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+}
+
+.app-container {
+  width: min(980px, 95vw);
+  height: min(560px, 90vh);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20px rgba(0,0,0,.5);
+  border-radius: 8px;
+  overflow: hidden;  
+}
