@@ -1,0 +1,56 @@
+.contentArea {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #fff;
+}
+
+.searchSection {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ECE9D8;
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.searchWrapper label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #444;
+}
+
+.searchWrapper input {
+  padding: 5px;
+  border: 1px solid #7F9DB9;
+  width: 300px;
+  max-width: 100%;
+  font-family: var(--font-main);
+}
+
+.resourceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.xpButton {
+  height: 22px;
+  padding: 0 12px;
+  background: linear-gradient(to bottom, #F8F8F8 0%, #ECE9D8 100%);
+  border: 1px solid #7F9DB9;
+  border-radius: 2px;
+  font-size: 11px;
+  cursor: pointer;
+  color: black;
+}
+
+
+.xpButton:hover {
+  box-shadow: inset 0 0 2px #F2963D;
+  border-color: #F2963D;
+}

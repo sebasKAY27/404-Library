@@ -1,0 +1,78 @@
+.sidebar {
+  width: 200px;
+  background: linear-gradient(to bottom, #7BA2E7 0%, #6375D6 100%);
+  padding: 10px;
+  overflow-y: auto;
+  transition: width 0.3s ease, padding 0.3s ease;
+}
+
+.collapsed {
+  width: 44px;
+  padding: 10px 6px;
+}
+
+.sidebarPanel {
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,.1);
+}
+
+.panelHeader {
+  background: linear-gradient(to right, #FFF 0%, #D6DFF7 100%);
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panelTitle {
+  font-weight: bold;
+  color: #215DC6;
+  font-size: 12px;
+}
+
+.panelToggle {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background: url('https://win98icons.alexmeub.com/icons/png/arrow_up-0.png') no-repeat center center;
+  background-size: 10px;
+  box-shadow: 0 0 2px rgba(0,0,0,.2);
+  cursor: pointer;
+}
+
+.panelContent {
+  padding: 10px;
+  background: #D6DFF7;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sidebarLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #215DC6;
+  font-size: 11px;
+  padding: 2px;
+}
+
+.sidebarLink img { width: 16px; height: 16px; }
+
+.sidebarLink:hover {
+  text-decoration: underline;
+  color: #003399;
+}
+
+.collapsed .sidebarPanel { display: none; }
+
+.collapsed .linkLabel { display:none; }
+
+.tipContent { background: #FFFFE1; }
+
+.tipText { font-size: 11px; line-height: 1.4; color: #333; }

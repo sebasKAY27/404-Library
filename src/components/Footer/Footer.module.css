@@ -1,0 +1,79 @@
+.footer {
+  height: 30px;
+  background: linear-gradient(to bottom, #245EDC 0%, #3E80F2 10%, #245EDC 100%);
+  display: flex;
+  align-items: center;
+  color: white;
+  border-top: 1px solid #003399;
+  z-index: 100;
+}
+
+.footerStart { padding-left: 0; }
+
+.startButton {
+  height: 30px;
+  background: linear-gradient(to bottom, #3C8538 0%, #4AB440 10%, #3C8538 100%);
+  border: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 0 15px 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 14px;
+  box-shadow: inset 1px 1px 2px rgba(255,255,255,.5), 2px 0 5px rgba(0,0,0,.3);
+  cursor: pointer;
+}
+
+.startButton img { width: 20px; height: 20px; }
+
+.startButton:hover {
+  background: linear-gradient(to bottom, #4AB440 0%, #5DD652 10%, #4AB440 100%);
+}
+
+.taskbar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.taskItem {
+  background: #1E52B7;
+  border: 1px solid #103682;
+  border-radius: 2px;
+  padding: 2px 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  width: 180px;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,.1);
+}
+
+.taskItem img { width: 16px; height: 16px; }
+
+.active {
+  background: #153E8F;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,.3);
+  border-bottom: 1px solid rgba(255,255,255,.2);
+}
+
+.tray {
+  background: #0B76E0;
+  border-left: 1px solid #103682;
+  padding: 0 10px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,.2);
+}
+
+.tray img { width: 16px; height: 16px; }
+
+.time { white-space: nowrap; }
