@@ -29,7 +29,7 @@ const CONFIG = {
         { name: "Systems", icon: "computer_explorer-0.png" },
         { name: "Terminals", icon: "console_prompt-0.png" },
         { name: "Repositories", icon: "directory_open_file_mydocs-0.png" },
-        { name: "Components", icon: "component-0.png" },
+        { name: "Components", icon: "chm-0.png" },
         { name: "Customization", icon: "desk_properties-0.png" },
         { name: "User Uploads", icon: "directory_open_file_mydocs-0.png" }
     ],
